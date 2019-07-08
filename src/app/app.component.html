@@ -1,0 +1,71 @@
+<mat-toolbar>Google keepnote</mat-toolbar>
+<!-- expansionpanelcontent -->
+
+<div>
+
+  <mat-expansion-panel class="noteinputcontainer">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Add Note
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+
+    <div class="example-form">
+
+      <mat-form-field class="example-full-width">
+        <input [(ngModel)]="note.bar" matInput placeholder="Favorite bar" value="">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <input [(ngModel)]="note.food" matInput placeholder="Favorite food" value="">
+      </mat-form-field>
+
+      <mat-form-field class="example-full-width">
+        <textarea [(ngModel)]="note.comment" matInput placeholder="Leave a comment" value=""></textarea>
+      </mat-form-field>
+
+
+
+      <mat-form-field>
+        <input [(ngModel)]="note.title" matInput placeholder="Input">
+      </mat-form-field>
+
+      <mat-form-field>
+        <textarea [(ngModel)]="note.text" matInput placeholder="Textarea"></textarea>
+      </mat-form-field>
+
+
+      <button (click)=takenotes() mat-button>Save</button>
+
+      <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+        <mat-button-toggle value="Add a new response">new response</mat-button-toggle>
+        <mat-button-toggle value="rate us">rate us
+          <mat-expansion-panel>
+            <mat-expansion-panel-header>
+
+              <mat-slider></mat-slider>
+
+
+            </mat-expansion-panel-header>
+          </mat-expansion-panel>
+        </mat-button-toggle>
+        <mat-button-toggle value="Exit">exit</mat-button-toggle>
+      </mat-button-toggle-group>
+
+    </div>
+
+  </mat-expansion-panel>
+
+</div>
+
+
+<mat-card class="notecard" *ngFor="let mynote of noteList">
+
+  <mat-card-title>{{mynote.title}}</mat-card-title>
+  <mat-card-content>{{mynote.text}}</mat-card-content>
+  <mat-card-content>{{mynote.bar}}</mat-card-content>
+  <mat-card-content>{{mynote.food}}</mat-card-content>
+  <mat-card-content>{{mynote.comment}}</mat-card-content>
+
+</mat-card>
